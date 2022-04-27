@@ -15,12 +15,15 @@ def is_valid_IP(strng):
 
 
     # check if each octet is number between 0-255
-
+    for octet in list:
+        if octet < 0 or octet > 255:
+            return False
     # check if there is no leading 0
 
     # https://stackoverflow.com/questions/16603282/how-to-compare-each-item-in-a-list-with-the-rest-only-once
     return True
 
 
-print(is_valid_IP('12.255.56.1'))
+#print(is_valid_IP('12.255.56.1'))
 #print(is_valid_IP('ahoj.255.56.1'))
+print(is_valid_IP('192.168.1.300'))
