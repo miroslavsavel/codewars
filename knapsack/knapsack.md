@@ -19,3 +19,29 @@ take the fruit with the highest profit that does not exceed the weight limit
 
 simple to implement
 not guaranteed to be optimal
+
+
+# dynamic programming
+15:12
+
+a collection of techniques
+- recursion
+- memoization
+- bottom-up
+
+# dominance relations
+pomelo will never be part of optimal solution
+
+
+
+-------------------------------------
+https://www.youtube.com/watch?v=xCbYmUPvc2Q
+
+bottom up problem
+2 choices 
+- don't use ith item
+- do use ith item
+??
+
+# CS dojo
+https://www.youtube.com/watch?v=xOlhR_2QCXY

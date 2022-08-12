@@ -1,25 +1,26 @@
+items = [
+            ('avocado', 2.2, 170),
+            ('pomelo', 8, 1500),
+            ('durian', 22, 1500),
+            ('cucamelon',0.26, 15),
+            ('lychee', 0.4, 20),
+            ('star apple', 1, 200)
+        ]
+
+def dynamic_fruit(items, capacity):
+    bag = [0 for i in range(capacity+1)]    # this will put capacity+1 zeroes to the list
+    for i in range(capacity+1):
+        for j in range(len(items)):
+            # we have check for all possible pieces of fruit
+            _, value, weight = items[j]     # unpack the  tupple
+            # check if the weight of fruit if less than current capacity ( semi cpacity that will be growing
+            if(weight < i):
+                # check which of these two things is best solution
+                # bag[i] is bag without specific fruit in
+                # and the value of fruit within bag bag[i-weight] + value
+                bag[i] = max(bag[i], bag[i-weight] + value)
+    return round(bag[capacity])
 
 
-
-def knapSack(C,n, wt,val):
-    if C == 0 or n == 0:
-        return 0
-    if wt[n-1] > C:
-        # if the weight of item is greater than capacity of bag
-        # we cannot take it, so we will call subproblem, we exclude it
-        return knapSack(C, n-1, wt, val)
-    else:
-        # If we can take item into sack
-        # there are two cases which we should compare
-        # 1, if we take item into account
-        # 2, or if we exclude it
-        # we should return maximum from the values we can take
-        return max( val[n-1] + knapSack(C-wt[n-1], n-1, wt, val),
-                    knapSack(C, n-1, wt, val))
-
-
-val = [10, 40, 50, 75]  # values for items
-wt = [5, 10, 3, 12]     # weights for items
-C = 20
-n = len(val)
-print(knapSack(C,n,wt,val))
+# test greedy ! this ist optimal solution
+print(dynamic_fruit(items, 2000))
